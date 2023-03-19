@@ -81,11 +81,11 @@ const getAllBookHandlerById = (request, h) => {
   }
 
   if (reading !== undefined) {
-    allBook = allBook.filter((book) => book.reading === reading);
+    allBook = allBook.filter((book) => Boolean(book.reading) === Boolean(reading));
   }
 
   if (finished !== undefined) {
-    allBook = allBook.filter((book) => book.finished === finished);
+    allBook = allBook.filter((book) => Boolean(book.finished) === Boolean(finished));
   }
 
   allBook = allBook.map((book) => ({
